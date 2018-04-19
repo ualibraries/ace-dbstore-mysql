@@ -1,0 +1,22 @@
+version: '3'
+services:
+  dbstore:
+    image: 'ace-dbstore-mysql:1.11'
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ADMIN_PSWD:-insecure}
+      - MYSQL_DATABASE=${ACE_AM_DATABASE:-amdb}
+      - MYSQL_USER=${ACE_AMDBA_USER:-aceam}
+      - MYSQL_PASSWORD=${ACE_AMDBA_PASSWORD:-ace}
+      - MYSQL_ALLOW_EMPTY_PASSWORD='false'
+      - ACE_IMS_DATABASE=${ACE_IMS_DATABASE:-imsdb}
+      - ACE_IMSDBA_USER=${ACE_IMSDBA_USER:-aceims}
+      - ACE_IMSDBA_PASSWORD=${ACE_IMSDBA_PASSWORD:-ace}
+    volumes:
+      - ${ACE_DBSTORE:-dbstore}:/var/lib/mysql
+      - run.mysql:/run/mysqld
+
+volumes:
+  run.mysql:
+  dbstore:
+    
