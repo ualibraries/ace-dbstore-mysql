@@ -3,6 +3,8 @@ services:
   dbstore:
     image: 'uazlibraries/ace-dbstore-mysql:1.11'
     restart: always
+    ports:
+      - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ADMIN_PSWD:-insecure}
       - MYSQL_DATABASE=${ACE_AM_DATABASE:-amdb}
