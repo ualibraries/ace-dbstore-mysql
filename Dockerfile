@@ -1,5 +1,8 @@
 FROM mysql:5.7
 
-COPY docker/* /docker-entrypoint-initdb.d/
+COPY docker/ /opt/ace-dbstore/
 
-RUN mv /docker-entrypoint-initdb.d/large-index.cnf /etc/mysql/mysql.conf.d/large-index.cnf
+RUN \
+mv -v /opt/ace-dbstore/create-db.sh /docker-entrypoint-initdb.d/ && \
+mv -v /opt/ace-dbstore/large-index.cnf /etc/mysql/mysql.conf.d/
+

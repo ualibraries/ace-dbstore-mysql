@@ -1,16 +1,19 @@
 version: '3'
 services:
   dbstore:
-    image: 'uazlibraries/ace-dbstore-mysql:1.11'
+    image: 'ace-dbstore-mysql:1.11'
     restart: always
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ADMIN_PSWD:-insecure}
-      - MYSQL_DATABASE=${ACE_AM_DATABASE:-amdb}
-      - MYSQL_USER=${ACE_AMDBA_USER:-aceam}
-      - MYSQL_PASSWORD=${ACE_AMDBA_PASSWORD:-ace}
       - MYSQL_ALLOW_EMPTY_PASSWORD='false'
+      - ACE1_AM_DATABASE=${ACE1_AM_DATABASE:-amdb1}
+      - ACE1_AMDBA_USER=${ACE1_AMDBA_USER:-aceam1}
+      - ACE1_AMDBA_PASSWORD=${ACE1_AMDBA_PASSWORD:-ace}
+      - ACE2_AM_DATABASE=${ACE2_AM_DATABASE:-amdb2}
+      - ACE2_AMDBA_USER=${ACE2_AMDBA_USER:-aceam2}
+      - ACE2_AMDBA_PASSWORD=${ACE2_AMDBA_PASSWORD:-ace234}
       - ACE_IMS_DATABASE=${ACE_IMS_DATABASE:-imsdb}
       - ACE_IMSDBA_USER=${ACE_IMSDBA_USER:-aceims}
       - ACE_IMSDBA_PASSWORD=${ACE_IMSDBA_PASSWORD:-ace}
