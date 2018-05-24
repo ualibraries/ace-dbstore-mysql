@@ -15,9 +15,8 @@ services:
       - DB_PORT=${ACE_AMDB_PORT:-3306}
       - DB_USER=${ACE_AMDBA_USER:-aceam}
       - DB_PASSWORD=${ACE_AMDBA_PASSWORD:-ace}
-      - BOOTSTRAP_SLEEP=${ACE_AM_BOOTSTRAP_SLEEP:-45}
+      - BOOTSTRAP_SLEEP=${ACE_AM_BOOTSTRAP_SLEEP:-60}
     volumes:
-      - initdb.d:/opt/initdb.d
       - ${ACE_AUDIT_SHARES:-/mnt}:/mnt
       - run.mysql:/run/mysqld
 
