@@ -67,7 +67,7 @@ To test out the suite, run the following commands:
 ```
 	
 	git clone https://github.com/ualibraries/ace-dbstore-mysql.git
-	cd ace-audit-manager/compose/fixity
+	cd ace-dbstore-mysql/compose/fixity
 	docker-compose up -d
 	
 ```
@@ -89,7 +89,7 @@ To cleanup the above test instance, run:
 ```
 	
 	git clone https://github.com/ualibraries/ace-dbstore-mysql.git
-	cd ace-audit-manager/compose/fixity
+	cd ace-dbstore-mysql/compose/fixity
 	docker-compose rm -fsv
 	docker volume prune  # Enter y
 	
