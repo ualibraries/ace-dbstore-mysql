@@ -58,7 +58,7 @@ There are a couple docker-compose deployments provided:
 
 ## Self contained
 
-A self-contained docker-compose example integrating all three components (ace-am, ace-ims, ace-dbstore) is located at [compose/fixity](https://github.com/ualibraries/ace-dbstore-mysql/tree/master/compose/fixity). If an smtp service is available then this docker-compose provides a way to quickly install and try out full [ACE Auditing Control Environment](https://wiki.umiacs.umd.edu/adapt/index.php/Ace) product suite.
+A self-contained docker-compose example integrating all three components (ace-am, ace-ims, ace-dbstore) is located at [compose/fixity](https://github.com/ualibraries/ace-dbstore-mysql/tree/master/compose/fixity). As an external dependency, if an smtp service is available then this docker-compose provides a way to quickly install and try out the full [ACE Auditing Control Environment](https://wiki.umiacs.umd.edu/adapt/index.php/Ace) product suite.
 
 In looking over the self-contained  [docker-compose.yml](https://github.com/ualibraries/ace-dbstore-mysql/blob/master/compose/fixity/docker-compose.yml) file, one important detail to note is ACE Audit Manager is accessible through port 8090 rather than the standard 8080. This is to allow the ACE Integrity Management service to run at the standard port 8080.
 
@@ -72,7 +72,13 @@ To test out the suite, run the following commands:
 	
 ```
 
-Next, the configuration needs to get updated to use the local ace-ims docker container and the smtp server. Click on the the [System Settings](http://localhost:8090/ace-am/UpdateSettings) link, the user/pswd is 'admin/admin'. Change the 'IMS Host' entry from 'ims.umiacs.umd.edu' to 'integrity'. Update the 'Mail Server' to the value for your organization's smtp server, and the 'Mail From' account to reflect the correct notification email address. To commit the updated values hit the 'Submit' link at the bottom of the page.
+Next, the configuration needs to get updated to use the local ace-ims docker container and the smtp server:
+
+1. Click on the the [System Settings](http://localhost:8090/ace-am/UpdateSettings) link, the user/pswd is 'admin/admin'.
+2. Change the 'IMS Host' entry from 'ims.umiacs.umd.edu' to 'integrity'.
+3. Update the 'Mail Server' to the value for your organization's smtp server.
+4. Update the 'Mail From' account to reflect the correct notification email address.
+5. To commit the updated values hit the 'Submit' link at the bottom of the page.
 
 Then browse to [http://localhost:8090/ace-am](http://localhost:8090/ace-am). Follow the [3. Register your first collection](https://wiki.umiacs.umd.edu/adapt/index.php/Ace:Audit_Manager_Installation_Guide) instructions to setup the first archive share to audit. The docker image mounts /mnt from the host into to docker container, so any host shares that have been mounted to /mnt will be available to create a collection with for fixity auditing.
 
