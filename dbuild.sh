@@ -3,7 +3,7 @@ set -x
 
 NETWORK=${5:-host}
 
-TAG=${4:-1.11}
+TAG=${4:-1.12}
 CONTAINER=${3:-ace-dbstore}
 REPOSITORY=${2:-ace-dbstore-mysql}
 ACTION=${1:-BUILD}
